@@ -57,5 +57,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < navigationItemView.length; i++) {
+                    navigationItemView[i].setColor(getResources().getColor(R.color.black));
+                }
+                navigationItemView[position].setColor(getResources().getColor(R.color.blue));
+            }
+        });
     }
 }
