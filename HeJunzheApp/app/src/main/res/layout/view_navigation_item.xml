@@ -9,13 +9,13 @@
         android:id="@+id/navigation_item_image"
         android:layout_width="match_parent"
         android:layout_height="24sp"
-        android:src="@drawable/baseline_calculate_24"
+        android:src="@drawable/baseline_warning_amber_24"
         android:layout_marginVertical="5sp"/>
     <TextView
         android:id="@+id/navigation_item_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Navigation Item"
+        android:text="Navigation"
         android:layout_marginBottom="10sp"
         android:gravity="center"
         android:fontFamily="@font/misans"/>
