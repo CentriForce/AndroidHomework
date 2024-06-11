@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.hejunzheapp.customview.NavigationItemView;
 import com.example.hejunzheapp.viewpager.ViewPagerAdapter;
+import com.tencent.mmkv.MMKV;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
         setViewPager();
+
+        MMKV.initialize(this);
     }
 
     private void initView() {

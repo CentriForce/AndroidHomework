@@ -10,21 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hejunzheapp.R;
 
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
     private final List<Page2Item> items;
 
     public RecycleAdapter(List<Page2Item> items) {
         this.items = items;
-    }
-
-    // 计算两个日期之间的天数差
-    private static long getDaysBetween(Calendar start, Calendar end) {
-        long diffInMs = end.getTimeInMillis() - start.getTimeInMillis();
-        return TimeUnit.DAYS.convert(diffInMs, TimeUnit.MILLISECONDS);
     }
 
     @NonNull
@@ -40,10 +33,11 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
         // 绑定数据到ViewHolder的View上
         Page2Item item = items.get(position);
         holder.textView.setText(item.getTitle());
-
-        Calendar end = item.getDay();
-        Calendar now = Calendar.getInstance();
-        holder.dayView.setText(String.valueOf(getDaysBetween(now, end)));
+        // 计算距离结束的天数
+        Date end = item.getDay();
+        Date now = new Date();
+        long timeDifferenceInDays = (end.getTime() - now.getTime()) / 1000 / 60 / 60 / 24 + 1;
+        holder.dayView.setText(String.valueOf(timeDifferenceInDays));
     }
 
     @Override

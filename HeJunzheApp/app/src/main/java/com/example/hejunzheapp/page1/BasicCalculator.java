@@ -115,6 +115,8 @@ public class BasicCalculator {
                         }
                         numberStack.push(num); //push num
                         tempNum = new StringBuilder(); //重置tempNum
+                    } else {
+                        continue;
                     }
                 }
 
@@ -136,7 +138,13 @@ public class BasicCalculator {
                         //2.3 栈顶operator优先级高，operator出栈，并将num运算结果push进numStack
                         case '>':
                             char operator = operatorStack.pop();
+                            if (numberStack.isEmpty()) {
+                                return Double.MAX_VALUE;
+                            }
                             double b = numberStack.pop();
+                            if (numberStack.isEmpty()) {
+                                return Double.MAX_VALUE;
+                            }
                             double a = numberStack.pop();
                             double result = operate(a, operator, b);
                             if (result == Double.MAX_VALUE)

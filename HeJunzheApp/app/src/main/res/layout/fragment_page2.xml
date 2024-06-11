@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewpager.Page2Fragment">
+    tools:context=".page2.Page2Fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,9 +26,5 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/blue"
-        android:clickable="true"
-        android:contentDescription="ADD"
-        android:src="@drawable/baseline_warning_amber_24" />
-
-    <!--    TODO 将添加图标改为加号-->
+        android:src="@drawable/baseline_add_24" />
 </RelativeLayout>

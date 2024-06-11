@@ -27,7 +27,6 @@ public class Page1Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -60,7 +59,7 @@ public class Page1Fragment extends Fragment {
             });
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
             int finalI = i;
             btn_op[finalI].setOnClickListener(new View.OnClickListener() {
                 @Override

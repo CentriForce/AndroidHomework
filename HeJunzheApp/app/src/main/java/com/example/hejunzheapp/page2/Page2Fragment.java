@@ -1,5 +1,6 @@
-package com.example.hejunzheapp.viewpager;
+package com.example.hejunzheapp.page2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hejunzheapp.R;
-import com.example.hejunzheapp.page2.Page2Item;
-import com.example.hejunzheapp.page2.RecycleAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class Page2Fragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private FloatingActionButton floatingButton;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +38,25 @@ public class Page2Fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        floatingButton = view.findViewById(R.id.floatingActionButton);
+        floatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NewDayActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         List<Page2Item> items = new ArrayList<Page2Item>();
-        for (int i = 0; i < 20; i++) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(2024, 9, i);
-            items.add(new Page2Item("距离10月的第" + (i + 1) + "天还有", calendar));
-        }
+        items = Page2Item.LoadPage2Item();
+
         RecycleAdapter recycleAdapter = new RecycleAdapter(items);
         recyclerView.setAdapter(recycleAdapter);
     }
