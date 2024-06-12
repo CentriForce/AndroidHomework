@@ -57,7 +57,17 @@ public class Page2Fragment extends Fragment {
         List<Page2Item> items = new ArrayList<Page2Item>();
         items = Page2Item.LoadPage2Item();
 
-        RecycleAdapter recycleAdapter = new RecycleAdapter(items);
+        RecycleAdapter recycleAdapter = new RecycleAdapter(items, new RecycleAdapter.onItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // 进入新activity
+                Intent intent = new Intent(getContext(), DayDetailActivity.class);
+                // 传入当前点击item的position
+                intent.putExtra("position", position);
+                // 启动新activity
+                getContext().startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(recycleAdapter);
     }
 }

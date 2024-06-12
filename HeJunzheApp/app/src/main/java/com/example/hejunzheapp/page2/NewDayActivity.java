@@ -76,7 +76,7 @@ public class NewDayActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "请填写完整信息！", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // TODO:保存内容到本地
+
                 Page2Item page2Item = new Page2Item(
                         addTitle.getText().toString(),
                         date,

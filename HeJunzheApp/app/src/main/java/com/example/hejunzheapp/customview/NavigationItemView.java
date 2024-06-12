@@ -61,4 +61,7 @@ public class NavigationItemView extends LinearLayout {
         imageView = findViewById(R.id.navigation_item_image);
         textView = findViewById(R.id.navigation_item_text);
     }
+    public String  getText(){
+        return textView.getText().toString();
+    }
 }

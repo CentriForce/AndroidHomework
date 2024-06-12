@@ -1,7 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/select_country_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="4"
+    android:orientation="horizontal">
 
-</LinearLayout>
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/cny"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/cny"
+        app:text="CNY" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/usd"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/usd"
+        app:text="USD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/jpy"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/jpy"
+        app:text="JPY" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/eur"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/eur"
+        app:text="EUR" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/gbp"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/gbp"
+        app:text="GBP" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/aud"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/aud"
+        app:text="AUD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/cad"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/cad"
+        app:text="CAD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/nzd"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/nzd"
+        app:text="NZD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/mop"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/mop"
+        app:text="MOP" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/hkd"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/hkd"
+        app:text="HKD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/ntd"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/ntd"
+        app:text="NTD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/sgd"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/sgd"
+        app:text="SGD" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/krw"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/krw"
+        app:text="KRW" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/zar"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/zar"
+        app:text="ZAR" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/rub"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/rub"
+        app:text="RUB" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/inr"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/inr"
+        app:text="INR" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/brl"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/brl"
+        app:text="BRL" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/chf"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/chf"
+        app:text="CHF" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/sek"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/sek"
+        app:text="SEK" />
+
+    <com.example.hejunzheapp.customview.NavigationItemView
+        android:id="@+id/php"
+        android:layout_width="0sp"
+        android:layout_margin="10sp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:fontFamily="@font/misans"
+        app:image="@drawable/php"
+        app:text="PHP" />
+</GridLayout>

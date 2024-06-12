@@ -1,5 +1,7 @@
 package com.example.hejunzheapp.page2;
 
+import static com.example.hejunzheapp.KEYS.DATE_KEY;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tencent.mmkv.MMKV;
@@ -9,7 +11,6 @@ import java.util.Date;
 
 public class Page2Item {
     private String title;
-    private static final String DATE_KEY = "date_key";
     private String detail;
     // TODO 添加日期变量 和对应的 getter 和对应的 构造方法
     private Date day;
@@ -44,6 +45,24 @@ public class Page2Item {
         // 保存数据到 MMKV
         MMKV.defaultMMKV().encode(DATE_KEY, jsonString);
         return jsonString;
+    }
+
+    public static String DeletePage2Item(int position) {
+        ArrayList<Page2Item> saveData = new Gson().fromJson(
+                MMKV.defaultMMKV()
+                        .decodeString(DATE_KEY),
+                new TypeToken<ArrayList<Page2Item>>() {
+                }.getType()
+        );
+        if (saveData.size() >= position) {
+            saveData.remove(position);
+            Gson gson = new Gson();
+            String jsonString = gson.toJson(saveData);
+            MMKV.defaultMMKV().encode(DATE_KEY, jsonString);
+            return jsonString;
+        } else {
+            return null;
+        }
     }
 
     public static ArrayList<Page2Item> LoadPage2Item() {

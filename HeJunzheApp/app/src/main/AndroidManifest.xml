@@ -21,11 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".page2.NewDayActivity"
-            android:exported="false">
-
+            android:exported="true">
         </activity>
+
+        <activity
+            android:name=".page2.DayDetailActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

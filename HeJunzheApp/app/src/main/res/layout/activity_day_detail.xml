@@ -1,7 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="32dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32sp"
+        android:layout_marginBottom="16sp"
+        android:fontFamily="@font/misans"
+        android:text="倒数日详情"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/misans"
+        android:paddingHorizontal="12sp"
+        android:text="标题"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/show_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10sp"
+        android:background="@drawable/shape_result_textview"
+        android:fontFamily="@font/misans"
+        android:hint="无标题"
+        android:padding="12sp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/date_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/misans"
+        android:paddingHorizontal="12sp"
+        android:text="日期"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/show_date_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10sp"
+        android:background="@drawable/shape_result_textview"
+        android:fontFamily="@font/misans"
+        android:hint="无日期"
+        android:padding="12sp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/remain_date_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:fontFamily="@font/misans"
+        android:hint="距离结束还有XX天"
+        android:paddingHorizontal="12sp"
+        android:textAlignment="textEnd"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/detail_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/misans"
+        android:paddingHorizontal="12sp"
+        android:text="备注"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/show_detail_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10sp"
+        android:background="@drawable/shape_result_textview"
+        android:fontFamily="@font/misans"
+        android:hint="无备注"
+        android:padding="12sp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/delete_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:background="@drawable/shape_red_button"
+        android:fontFamily="@font/misans"
+        android:gravity="center"
+        android:padding="12sp"
+        android:text="删除倒数日"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
 
 </LinearLayout>

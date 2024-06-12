@@ -2,59 +2,30 @@ package com.example.hejunzheapp.viewpager;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.hejunzheapp.R;
+import com.example.hejunzheapp.page3.SelectCountryDialog;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Page3Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Page3Fragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Page3Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Page3Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Page3Fragment newInstance(String param1, String param2) {
-        Page3Fragment fragment = new Page3Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private EditText[] moneyEditText = new EditText[4];
+    private TextView[] countryTextView = new TextView[4];
+    private double[] exchangeRate = {1.0, 0.15, 0.12, 0.09};
+    private String[] countryName = {"CNY", "USD", "JPY", "EUR"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -62,5 +33,68 @@ public class Page3Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_page3, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        moneyEditText[0] = view.findViewById(R.id.money_edittext1);
+        moneyEditText[1] = view.findViewById(R.id.money_edittext2);
+        moneyEditText[2] = view.findViewById(R.id.money_edittext3);
+        moneyEditText[3] = view.findViewById(R.id.money_edittext4);
+
+        countryTextView[0] = view.findViewById(R.id.country_select1);
+        countryTextView[1] = view.findViewById(R.id.country_select2);
+        countryTextView[2] = view.findViewById(R.id.country_select3);
+        countryTextView[3] = view.findViewById(R.id.country_select4);
+
+        for (int i = 0; i < 4; i++) {
+            int finalI = i;
+            // 添加点击事件
+            moneyEditText[finalI].addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    // 选中但是还没有修改的时候
+                    // 如果同时没有任何文字,则通过hint显示100元本币可以兑换哪些其他货币
+                    if (moneyEditText[0].getText().toString().isEmpty()
+                            && moneyEditText[1].getText().toString().isEmpty()
+                            && moneyEditText[2].getText().toString().isEmpty()
+                            && moneyEditText[3].getText().toString().isEmpty()) {
+                        moneyEditText[finalI].setHint("100");
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    // 更改的时候
+                    // 如果不为空,则转换货币
+                    // 如果为空,则将本币转换为美元出去对比
+                    if (!s.toString().isEmpty()) {
+                        double source = Double.parseDouble(s.toString());
+//                  TODO      double exchangeUSD = source / ;
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+            // 添加点击事件
+            countryTextView[finalI].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SelectCountryDialog dialog = new SelectCountryDialog(new SelectCountryDialog.OnDialogResultListener() {
+                        @Override
+                        public void onDialogResult(String country) {
+                            countryTextView[finalI].setText(country);
+                        }
+                    });
+                    dialog.show(getActivity().getSupportFragmentManager(), "selectCountry");
+                }
+            });
+        }
+
     }
 }

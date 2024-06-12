@@ -1,5 +1,7 @@
 package com.example.hejunzheapp.page2;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hejunzheapp.MainActivity;
 import com.example.hejunzheapp.R;
 
 import java.util.Date;
@@ -15,9 +18,11 @@ import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
     private final List<Page2Item> items;
+    private final RecycleAdapter.onItemClickListener onItemClickListener;
 
-    public RecycleAdapter(List<Page2Item> items) {
+    public RecycleAdapter(List<Page2Item> items,onItemClickListener onItemClickListener) {
         this.items = items;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -29,7 +34,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         // 绑定数据到ViewHolder的View上
         Page2Item item = items.get(position);
         holder.textView.setText(item.getTitle());
@@ -38,6 +43,15 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
         Date now = new Date();
         long timeDifferenceInDays = (end.getTime() - now.getTime()) / 1000 / 60 / 60 / 24 + 1;
         holder.dayView.setText(String.valueOf(timeDifferenceInDays));
+        // 设置item的点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null){
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -56,5 +70,9 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
             textView = itemView.findViewById(R.id.tv_title);
             dayView = itemView.findViewById(R.id.tv_day);
         }
+    }
+
+    public interface onItemClickListener{
+        void onItemClick(int position);
     }
 }

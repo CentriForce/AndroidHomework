@@ -23,25 +23,37 @@
             android:id="@+id/goto_page1"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
-            app:text="计算器"
+            android:layout_weight="1"
+            android:fontFamily="@font/misans"
             app:image="@drawable/baseline_calculate_24"
-            android:layout_weight="1" />
+            app:text="计算器" />
 
         <com.example.hejunzheapp.customview.NavigationItemView
             android:id="@+id/goto_page2"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
-            app:text="单位换算"
-            app:image="@drawable/baseline_compare_arrows_24"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:fontFamily="@font/misans"
+            app:image="@drawable/baseline_today_24"
+            app:text="倒数日" />
 
         <com.example.hejunzheapp.customview.NavigationItemView
             android:id="@+id/goto_page3"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
-            app:text="进制换算"
-            app:image="@drawable/baseline_filter_2_24"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:fontFamily="@font/misans"
+            app:image="@drawable/baseline_attach_money_24"
+            app:text="汇率换算" />
+
+        <com.example.hejunzheapp.customview.NavigationItemView
+            android:id="@+id/goto_page4"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/misans"
+            app:image="@drawable/baseline_accessible_forward_24"
+            app:text="急急急急" />
     </LinearLayout>
 
 </LinearLayout>

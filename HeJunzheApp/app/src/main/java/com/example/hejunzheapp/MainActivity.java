@@ -42,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         viewPager2 = findViewById(R.id.view_pager);
-        navigationItemView = new NavigationItemView[3];
+        navigationItemView = new NavigationItemView[4];
         navigationItemView[0] = findViewById(R.id.goto_page1);
         navigationItemView[1] = findViewById(R.id.goto_page2);
         navigationItemView[2] = findViewById(R.id.goto_page3);
+        navigationItemView[3] = findViewById(R.id.goto_page4);
     }
 
     private void setViewPager() {
